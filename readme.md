@@ -5,6 +5,8 @@ We will be running a basic Node/Express backend for this project. We will use th
 
 We will add an `/api` endpoint and use the node server as middleware.
 
+We will run the back end off of port 3001, so that we can run the react dev server off of port 3000. When put into production, the backend will serve the react production bundle off of the suite root and/or port 3001.
+
 ## Front end
 
 Images from https://www.pexels.com/photo/blue-and-white-planet-display-87009/
