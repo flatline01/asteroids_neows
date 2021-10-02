@@ -3,13 +3,19 @@
         {
             "id":0,
             "label":"About",
-            "url":"/actors"
+            "url":"/about"
         },
         {
             "id":1,
+            "label":"Linked In",
+            "target":"external",
+            "url":"https://www.linkedin.com/in/josephporto/"
+        },
+        {
+            "id":2,
             "label":"GitHub",
             "target":"external",
-            "url":"/Movies"
+            "url":"https://github.com/flatline01"
         }
     ] 
 }

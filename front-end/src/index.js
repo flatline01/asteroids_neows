@@ -3,14 +3,21 @@ import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import {Switch, BrowserRouter, Router, Route,} from "react-router-dom";
 import Header from "./partials/header/index";
-
+import Footer from "./partials/footer/index"
+import Home from "./content/home"
+import About from "./content/about"
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter forceRefresh={true}>
+    <BrowserRouter>
       <Header/>
-
-
+      <main>
+        <Switch>
+          <Route path="/about" component={About} />
+          <Route path="/" component={Home} />
+        </Switch>
+      </main>
+      <Footer/>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

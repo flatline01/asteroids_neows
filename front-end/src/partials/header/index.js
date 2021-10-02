@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from "react-router-dom";
 import { Nav }from "../../components/nav";
 import navSource from '../../data/headerlinks.json';
 
@@ -7,7 +8,7 @@ class Header extends Component {
     return (
       <header>
           <div className="container">
-              <a href="/" cssclass="logo">Home</a>
+              <NavLink to="/" className="logo" activeClassName="active">Home</NavLink>
               <Nav cssClass="topnav" datasource={navSource.nav}/>
           </div>
       </header>
