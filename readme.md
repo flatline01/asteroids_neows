@@ -9,7 +9,7 @@ We will run the back end off of port 3001, so that we can run the react dev serv
 
 ## Front end
 
-Images from https://www.pexels.com/photo/blue-and-white-planet-display-87009/
+Images and video assets from https://www.pexels.com/
 
 ## Assignment
 

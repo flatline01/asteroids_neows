@@ -1,0 +1,15 @@
+{
+    "nav": [
+        {
+            "id":0,
+            "label":"About",
+            "url":"/actors"
+        },
+        {
+            "id":1,
+            "label":"GitHub",
+            "target":"external",
+            "url":"/Movies"
+        }
+    ] 
+}
