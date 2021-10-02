@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 * HTML5 Boilerplate
 * + reset.css
@@ -320,7 +321,7 @@ img[src*=svg], img {
 }
 
 body, html {
-  background: #6e7faf;
+  background: #000;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -330,139 +331,211 @@ body, html {
   padding: 0 10px;
 }
 
-a {
-  color: #00B7FF;
-}
-
-address span {
-  display: block;
-}
-
-.card {
-  border-radius: 5px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+header, footer, main {
   position: relative;
-}
-.card.editing {
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
-}
-.card .info {
-  display: flex;
-}
-.card .info .photo {
-  flex: 1;
-  margin-right: 2%;
-}
-.card .info .photo .photoholder {
-  padding: 4px;
-  border: 1px solid #ccc;
-}
-.card .info .photo img {
-  display: block;
-}
-.card .info .photo.nophoto {
-  background: #ccc;
-}
-.card .info .address {
-  flex: 2;
-}
-.card h3 {
-  text-transform: uppercase;
+  z-index: 10;
 }
 
-main {
-  background: #edf4f7;
-  border-bottom: 1px solid;
+#videobg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
 }
-
-.home .banner {
-  background: url(/images/sunset.jpg) no-repeat center center/cover;
-  padding: 10vh 0;
-}
-.home .banner h1 {
-  font-family: "Poppins", sans-serif;
-  font-size: 16vw;
-  line-height: 74%;
-  letter-spacing: -1vw;
-  font-weight: 900;
-  color: rgba(0, 183, 255, 0.9);
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
-}
-.home .banner h2 {
-  font-family: "Poppins", sans-serif;
-  font-size: 6vw;
-  line-height: 74%;
-  color: #fff;
-  font-weight: 500;
-  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
-  text-transform: uppercase;
+#videobg video {
+  min-width: 100vw;
+  min-height: 100vh;
 }
 
 header {
-  background: #11ebcb;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(61, 73, 175, 0.7);
 }
 header .container {
   display: flex;
-  padding-top: 40px;
+}
+header a.logo {
+  display: inline-block;
 }
 header nav {
-  flex: 1;
   display: flex;
+  flex: 1;
+  justify-content: right;
 }
 header nav ul {
   display: flex;
 }
 header nav ul li {
-  position: relative;
-}
-header nav ul li a {
-  display: block;
-  white-space: nowrap;
-  padding: 4px 10px;
-  font-size: 14px;
-  font-weight: 900;
-  color: #1316cf;
-}
-header nav ul li a.active {
-  background: #edf4f7;
-}
-header nav ul li ul {
-  background: #11ebcb;
-  position: absolute;
-  z-index: 100;
-  display: none;
-}
-header nav ul li:hover > ul {
-  display: block;
-}
-header nav ul ul ul {
-  left: 100%;
-  top: 0;
+  display: inline-block;
 }
 
-.overlay {
+main {
+  max-height: 80vh;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translate(0, -50%);
+}
+
+footer {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  top: 100%;
-  z-index: 1000;
-  transition: 0.5s all;
-  background: rgba(0, 0, 0, 0.25);
 }
-.overlay.active {
-  top: 0;
+footer p {
+  margin: 0;
+  font-size: 10px;
+  color: #ccc;
 }
-
-footer {
-  padding: 2.5% 0;
+footer a {
+  color: #ccc;
 }
 
-label {
-  display: block;
-  margin: 0 0 10px;
+/* Page Styles */
+.home_page h1 {
+  font-family: "Poppins";
+  font-size: 8vw;
+  font-weight: 100;
+  line-height: 76%;
+  color: #fff;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
-label span {
+.home_page h2 {
+  font-family: "Poppins";
+  font-size: 3vw;
+  font-weight: 500;
+  line-height: 76%;
+  color: #ccc;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+section#neotable {
+  background: rgba(114, 126, 145, 0.7);
+  padding: 1vh 0;
+  margin: 1vh 0;
+  position: relative;
+}
+section#neotable .container {
+  height: 50vh;
+  position: relative;
+}
+section#neotable .container .loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+section#neotable .container .loading h3 {
+  font-family: "Poppins";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 76%;
+  color: #fff;
+  margin-bottom: 10px;
+}
+section#neotable .container .loading img {
+  border-radius: 1000px;
+}
+section#neotable .container.loaded .infobar {
+  display: flex;
+  padding: 12px 0;
+  color: #ccc;
+}
+section#neotable .container.loaded .infobar h3 {
+  font-family: "Poppins";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 76%;
+}
+section#neotable .container.loaded .infobar h3 span {
+  font-weight: 800;
+}
+section#neotable .container.loaded .infobar .currenttime {
+  flex: 1;
+  text-align: right;
+}
+section#neotable .container.loaded .dataholder {
+  border-radius: 5px;
+  background: rgba(204, 204, 204, 0.4);
+  padding: 0 0 20px;
+  overflow: hidden;
+}
+section#neotable .container.loaded .dataholder .diameter .info {
   display: block;
+  font-size: 10px;
+}
+section#neotable .container.loaded .dataholder .potential, section#neotable .container.loaded .dataholder .sentry {
+  text-align: center;
+}
+section#neotable .container.loaded tbody {
+  display: block;
+  height: 36vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+}
+section#neotable .container.loaded thead, section#neotable .container.loaded tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+section#neotable .container.loaded thead {
+  width: 100%;
+  border-bottom: 4px solid #3d49af;
+  background: #ccc;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
+  border-radius: 5px 5px 0 0;
+}
+section#neotable .container.loaded thead th {
+  padding: 15px 8px 10px;
+  border-left: 1px solid #fff;
+  text-align: center;
+  font-family: "Poppins";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 76%;
+  line-height: 100%;
+  vertical-align: bottom;
+}
+section#neotable .container.loaded thead th:first-child {
+  border-left: 0;
+  border-radius: 5px;
+}
+section#neotable .container.loaded tbody tr {
+  border-bottom: 1px solid #cccccc;
+}
+section#neotable .container.loaded tbody tr:hover {
+  background: #ccc;
+  box-shadow: 0 0 14px;
+}
+section#neotable .container.loaded tbody td {
+  font-family: "Poppins";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 76%;
+  line-height: 100%;
+  border-left: 1px solid rgba(0, 0, 0, 0);
+  padding: 10px 8px 10px;
+}
+section#neotable .container.loaded tbody td.alignRight {
+  text-align: right;
+}
+section#neotable .container.loaded tbody td:first-child {
+  border: 0;
+}
+section#neotable .container.loaded tbody td.potential.hazardous {
+  background: #ab1313;
+  color: #fff;
+  font-weight: 800;
+}
+section#neotable .container.loaded tbody td.potential.hazardous::before, section#neotable .container.loaded tbody td.potential.hazardous::after {
+  content: "⚠";
 }

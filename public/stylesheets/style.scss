@@ -1,11 +1,209 @@
 @import 'reset';
 
+@mixin mainFont($size,$weight) {
+  font-family: "Poppins";
+  font-size: $size;
+  font-weight: $weight;
+  line-height: 76%;
+}
+
 body, html{
-  background:rgb(110, 127, 175);
+  background:#000;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 .container{
   max-width: 1280px;
   margin:0 auto;
   padding:0 10px;
+}
+header, footer, main{
+  position: relative;
+  z-index: 10;
+}
+#videobg{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index: 1;
+  video{
+    min-width: 100vw;
+    min-height: 100vh;
+  }
+}
+header{
+  position: fixed;
+  top:0;
+  left:0;
+  right: 0;
+  background:rgba(61, 73, 175, 0.7);
+  .container{
+    display: flex;
+  }
+  a.logo{
+    display: inline-block;
+  }
+  nav{
+    display: flex;
+    flex:1;
+    justify-content: right;
+    ul{
+      display: flex;
+      li{
+        display: inline-block;
+      }
+    }
+  }
+}
+main{
+  max-height: 80vh;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translate(0,-50%);
+}
+footer{
+  position: fixed;
+  bottom:0;left:0;right:0;
+  p{
+    margin:0;
+    font-size: 10px;
+    color:#ccc;
+  }
+  a{
+    color:#ccc;
+  }
+}
+
+/* Page Styles */
+.home_page{
+  h1{
+    @include mainFont(8vw,100 );
+    color:#fff;
+    text-shadow: 0 0 4px rgba(0,0,0,.5);
+  }
+  h2{
+    @include mainFont(3vw,500 );
+    color:#ccc;
+    text-shadow: 0 0 4px rgba(0,0,0,.5);
+  }
+}
+section#neotable{
+  background: rgba(114, 126, 145, 0.7);
+  padding:1vh 0;
+  margin:1vh 0;
+  position: relative;
+  .container{
+    height: 50vh;
+    position: relative;
+    .loading{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      text-align: center;
+      h3{
+        @include mainFont(16px, 500);
+        color: #fff;
+        margin-bottom: 10px;
+      }
+      img{
+        border-radius: 1000px;
+      }
+    }
+    &.loaded{
+      .infobar{
+        display: flex;
+        padding:12px 0;
+        color:#ccc;
+        h3{
+          @include mainFont(18px, 400 );
+          span{
+            font-weight: 800;
+          }
+        }
+        .currenttime{
+          flex:1;
+          text-align: right;
+        }
+      }
+      .dataholder{
+        border-radius: 5px;
+        background: rgba(#ccc,.4);
+        padding:0 0 20px;
+        overflow: hidden;
+        .diameter .info{
+          display: block;
+          font-size: 10px;
+        }
+        .potential, .sentry{
+          text-align: center;
+        }
+      }
+      tbody {
+        display: block;
+        height: 36vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-width: thin;
+      }
+      thead, tbody tr {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+      }
+      thead {
+        width: 100%;
+        border-bottom: 4px solid rgba(61, 73, 175, 1);
+        background: #ccc;
+        box-shadow: 0 0 12px rgba($color: #000, $alpha: .7);
+        border-radius: 5px 5px 0 0;
+        
+        th{
+          padding: 15px 8px 10px; 
+          border-left: 1px solid #fff;
+          text-align: center;
+          @include mainFont(18px, 400 );
+          line-height: 100%;
+          vertical-align: bottom;
+          
+        }
+        th:first-child{
+          border-left: 0;
+          border-radius: 5px;
+        }
+      }
+      tbody{
+        tr{
+          border-bottom: 1px solid rgba(#ccc,1);
+        }
+        tr:hover{
+          background:#ccc;
+          box-shadow: 0 0 14px;
+        }
+        td{
+          @include mainFont(14px, 400 );
+          line-height: 100%;
+          border-left: 1px solid rgba($color: #000000, $alpha: 0);
+          padding: 10px 8px 10px; 
+        }
+        td.alignRight{
+          text-align: right;
+        }
+        td:first-child{
+          border:0;
+        }
+        td.potential.hazardous{
+          background: #ab1313;
+          color:#fff;
+          font-weight: 800;
+          &::before, &::after{
+            content:"⚠";
+          }
+        }
+      }
+    }
+  }
 }

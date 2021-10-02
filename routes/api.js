@@ -35,9 +35,24 @@ router.get("/:start?/:end?", function(req,res,next){
     fetch(endpoint)
     .then(res => res.json())
     .then(data => {
+        let roids = []
+        //lets take the returned object, and unroll it a bit. 
+        Object.entries(data.near_earth_objects).forEach(entry => {
+            //console.log("---",entry[1].length,"---")
+            Object.entries(entry[1]).forEach(item=>{
+                 //console.log("**",item[1].id)
+                 roids.push(item[1]);
+            })
+        });
+        //console.log(roids)
+
+
         res.json({
+            start:start,
+            end:end,
             timestamp: today,
-            data:data
+            count: data.element_count,
+            data:roids
         })
     })
 })

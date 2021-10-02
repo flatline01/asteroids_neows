@@ -12,7 +12,7 @@ class VideoBG extends Component{
     render(){
         return(
             <div id="videobg">
-                <video autoPlay="true" muted="true">
+                <video autoPlay={true} muted={true} loop={true}>
                     <source src={this.props.path} type="video/mp4"/>
                 </video>
             </div>

@@ -11,12 +11,10 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Header/>
-      <main>
-        <Switch>
-          <Route path="/about" component={About} />
-          <Route path="/" component={Home} />
-        </Switch>
-      </main>
+      <Switch>
+        <Route path="/about" component={About} />
+        <Route path="/" component={Home} />
+      </Switch>
       <Footer/>
     </BrowserRouter>
   </React.StrictMode>,

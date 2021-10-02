@@ -11,13 +11,21 @@ We will run the back end off of port 3001, so that we can run the react dev serv
 
 Images and video assets from https://www.pexels.com/
 
+## Additional Notes:
+Api returns absolute_magnitude_h, which is not `visual magnitude` requested below.
+
+* https://www.universeguide.com/fact/absoluteapparentandvisualmagnitudes
+* https://cneos.jpl.nasa.gov/glossary/h.html
+
+Not sure how to derive this.
+
 ## Assignment
 
 Using any framework, resources, libraries, etc you'd like to use, we would like
 for you to create an interactive HTML/JS table widget that shows the user data
 from NASA's NeoWs.
 
-Required columns:
+Required columns:   
  - id
  - name
  - est diameter in meters
@@ -29,7 +37,7 @@ Required columns:
  - close approach date / time
 
 Brownie points:
- - Allow user to specify start / end times
+ - Allow user to specify start / end times   
  - Allow user to free form text search
  - Allow user to sort
  - Anything else you may think the user would benefit from
