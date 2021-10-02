@@ -39,14 +39,28 @@ class Card extends Component{
                 <td className="missdistance alignRight" title={`${item.close_approach_data[0].miss_distance.kilometers} ${missUnits}`}>{missDistance}</td>
                 <td className="magnitude alignRight">{item.absolute_magnitude_h}</td>
                 <td className="approach alignRight">{closeApproach}</td>
-                <td className="info"><a href={item.nasa_jpl_url} target="_blank" rel="noreferrer nofollow">JPL Link</a></td>
+                <td className="info alignCenter"><a href={item.nasa_jpl_url} target="_blank" rel="noreferrer nofollow">JPL Link</a></td>
             </tr>
         )
     }
 
 }
 
+class Sorter extends Component{
+    constructor(props){
+        super(props);
+        this.state={
+            sorting:null
+        }
+    }
+    
+    render(){
+        return(
+            <button>{this.props.children}</button>
+        )
+    }
 
+}
 
 class NeoTable extends Component{
     constructor(props) {
@@ -68,8 +82,6 @@ class NeoTable extends Component{
           .then(res => res.json())
           .then(
             (result) => {
-                
-
                 this.setState({
                     isLoaded: true,
                     total:result.count,
@@ -119,7 +131,7 @@ class NeoTable extends Component{
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>Object ID</th>
                                         <th>Name</th>
                                         <th>Diameter</th>
                                         <th>Hazard</th>
@@ -133,7 +145,7 @@ class NeoTable extends Component{
                                 </thead>
                                 <tbody>
                                     {items.map(item => (
-                                       <Card item={item} />
+                                       <Card item={item}  key={item.id}/>
                                     ))}
                                 </tbody>
                             </table>

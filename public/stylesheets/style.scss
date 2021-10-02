@@ -231,6 +231,7 @@ section#neotable{
           @include mainFont(18px, 400 );
           line-height: 100%;
           vertical-align: bottom;
+          cursor: pointer;
           
         }
         th:first-child{
@@ -258,12 +259,30 @@ section#neotable{
         td:first-child{
           border:0;
         }
+        td.alignCenter{
+          text-align: center;
+        }
         td.potential.hazardous{
           background: #ab1313;
           color:#fff;
           font-weight: 800;
           &::before, &::after{
             content:"⚠";
+          }
+        }
+        td a{
+          display: inline-block;
+          padding: 6px 10px;
+          border-radius: 5px;
+          background:rgba(61, 73, 175, 1);
+          color:#ccc;
+          text-transform: uppercase;
+          transition: .5s all;
+          border: 2px solid rgba(61, 73, 175, 1);
+          &:hover{
+            background:#fff;
+            color:rgba(61, 73, 175, 1);
+            box-shadow: 0 0 5px rgba($color: #000, $alpha: .7);
           }
         }
       }
