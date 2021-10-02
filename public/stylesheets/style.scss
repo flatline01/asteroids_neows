@@ -43,6 +43,11 @@ header{
   }
   a.logo{
     display: inline-block;
+    font-size: 0;
+    width: 200px;
+    padding: 0 0 4%;
+    background: url(/images/logo.png) no-repeat center center / contain;
+    margin: 1% 0;
   }
   nav{
     display: flex;
@@ -50,8 +55,22 @@ header{
     justify-content: right;
     ul{
       display: flex;
+      align-items: end;
+      @include mainFont(16px, 400 );
       li{
         display: inline-block;
+        margin-left:5px;
+      }
+      a{
+        color:#ccc;
+        padding: 8px 12px;
+        display: block;
+      }
+      a:hover{
+        color:#fff;
+      }
+      a.active{
+        background:rgba(61, 73, 175, 1);
       }
     }
   }
@@ -90,6 +109,50 @@ footer{
     text-shadow: 0 0 4px rgba(0,0,0,.5);
   }
 }
+.about_page{
+  min-height: 100vh;
+  position: relative;
+  background:url(/images/pexels-pixabay-87009.jpg) no-repeat bottom center / cover;
+  h1{
+    @include mainFont(8vw,100 );
+    color:#fff;
+    text-shadow: 0 0 4px rgba(0,0,0,.5);
+  }
+  .textcontent{
+    padding:2.5vw;
+    border-radius: 5px;
+    background:rgba(#ccc,.6);
+    h3{
+      @include mainFont(22px, 800);
+      margin:0 0 20px;
+    }
+    p{
+      @include mainFont(18px,400 );
+      line-height:100%;
+      a{
+        color:#000;
+        text-decoration: underline;
+      }
+      a:hover{
+        color:#333;
+      }
+    }
+    p:last-child{
+      margin:0;
+    }
+    ul{
+      margin:0 0 20px;
+      li{
+        @include mainFont(18px,400 );
+        line-height:100%;
+        margin:0 0 6px 20px;
+        list-style-type: disc;
+      }
+    }
+    
+  }
+}
+/* Components */
 section#neotable{
   background: rgba(114, 126, 145, 0.7);
   padding:1vh 0;

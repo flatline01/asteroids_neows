@@ -10,6 +10,7 @@ class Home  extends Component{
         this.body = document.getElementsByTagName("body")[0]
     }
     componentDidMount() {
+        this.body.removeAttribute('class');
         this.body.classList.add("home_page");
         document.title = `Home | NeoWS Project`;
         //we'll deal with seo at a different time...

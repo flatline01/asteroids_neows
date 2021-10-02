@@ -361,6 +361,11 @@ header .container {
 }
 header a.logo {
   display: inline-block;
+  font-size: 0;
+  width: 200px;
+  padding: 0 0 4%;
+  background: url(/images/logo.png) no-repeat center center/contain;
+  margin: 1% 0;
 }
 header nav {
   display: flex;
@@ -369,9 +374,26 @@ header nav {
 }
 header nav ul {
   display: flex;
+  align-items: end;
+  font-family: "Poppins";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 76%;
 }
 header nav ul li {
   display: inline-block;
+  margin-left: 5px;
+}
+header nav ul a {
+  color: #ccc;
+  padding: 8px 12px;
+  display: block;
+}
+header nav ul a:hover {
+  color: #fff;
+}
+header nav ul a.active {
+  background: #3d49af;
 }
 
 main {
@@ -416,6 +438,62 @@ footer a {
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
 }
 
+.about_page {
+  min-height: 100vh;
+  position: relative;
+  background: url(/images/pexels-pixabay-87009.jpg) no-repeat bottom center/cover;
+}
+.about_page h1 {
+  font-family: "Poppins";
+  font-size: 8vw;
+  font-weight: 100;
+  line-height: 76%;
+  color: #fff;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+.about_page .textcontent {
+  padding: 2.5vw;
+  border-radius: 5px;
+  background: rgba(204, 204, 204, 0.6);
+}
+.about_page .textcontent h3 {
+  font-family: "Poppins";
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 76%;
+  margin: 0 0 20px;
+}
+.about_page .textcontent p {
+  font-family: "Poppins";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 76%;
+  line-height: 100%;
+}
+.about_page .textcontent p a {
+  color: #000;
+  text-decoration: underline;
+}
+.about_page .textcontent p a:hover {
+  color: #333;
+}
+.about_page .textcontent p:last-child {
+  margin: 0;
+}
+.about_page .textcontent ul {
+  margin: 0 0 20px;
+}
+.about_page .textcontent ul li {
+  font-family: "Poppins";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 76%;
+  line-height: 100%;
+  margin: 0 0 6px 20px;
+  list-style-type: disc;
+}
+
+/* Components */
 section#neotable {
   background: rgba(114, 126, 145, 0.7);
   padding: 1vh 0;
