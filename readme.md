@@ -19,12 +19,13 @@ Api returns absolute_magnitude_h, which is not `visual magnitude` requested belo
 
 Not sure how to derive this.
 
-We will be deploying with the react app in dev mode.
-
 ## To Do
-* More styling. Esp Mobile.
+* More styling - Esp Mobile.
 * more text formatting
 * finish sorting buttons
+    * stash the original object, sort a copy. this will allow for a reset.
+    * fix asc/desc sorting
+    * fix objects so that they can sort. This may need to be fixed on the server/api side. See notes in routes/api.js
 * add date setting
 
 ## Assignment
