@@ -1,5 +1,28 @@
 import React, { Component, useState, useEffect } from 'react';
 
+function formatDate(str){
+    var tempDate = str.replaceAll("-","/")
+    const d = new Date(tempDate)
+    return d.toLocaleString('en-US', {
+        weekday: 'short', // long, short, narrow
+        day: 'numeric', // numeric, 2-digit
+        year: 'numeric', // numeric, 2-digit
+        month: 'long', // numeric, 2-digit, long, short, narrow
+    })
+}
+
+function formatDateTime(str){
+    var tempDate = str.replaceAll("-","/")
+    const d = new Date(tempDate);
+    return d.toLocaleString('en-US', {
+        day: 'numeric', // numeric, 2-digit
+        year: 'numeric', // numeric, 2-digit
+        month: 'short', // numeric, 2-digit, long, short, narrow
+        hour: 'numeric', // numeric, 2-digit
+        minute: 'numeric', // numeric, 2-digit
+    })
+
+}
 
 class Card extends Component{
     constructor(props){
@@ -38,7 +61,7 @@ class Card extends Component{
                 <td className="velocity alignRight">{velocity}</td>
                 <td className="missdistance alignRight" title={`${item.close_approach_data[0].miss_distance.kilometers} ${missUnits}`}>{missDistance}</td>
                 <td className="magnitude alignRight">{item.absolute_magnitude_h}</td>
-                <td className="approach alignRight">{closeApproach}</td>
+                <td className="approach alignRight">{formatDateTime(closeApproach)}</td>
                 <td className="info alignCenter"><a href={item.nasa_jpl_url} target="_blank" rel="noreferrer nofollow">JPL Link</a></td>
             </tr>
         )
@@ -98,7 +121,9 @@ class NeoTable extends Component{
         super(props);
         this.state = {
             startAt:"",
+            startString:"",
             endAt:"",
+            endString:"",
             error: null,
             isLoaded: false,
             total:"",
@@ -113,11 +138,16 @@ class NeoTable extends Component{
           .then(res => res.json())
           .then(
             (result) => {
+                //let startString = new Date(result.start).toLocaleDateString()
+                let startString = formatDate(result.start)
+                let endString = formatDate(result.end)
                 this.setState({
                     isLoaded: true,
                     total:result.count,
                     startAt:result.start,
+                    startString:startString,
                     endAt:result.end,
+                    endString:endString,
                     items:result.data
                 });
             },
@@ -133,7 +163,7 @@ class NeoTable extends Component{
         )
     }
     render(){
-        const { error, isLoaded, items, startAt,endAt, total } = this.state;
+        const { error, isLoaded, items, startAt,endAt,startString,endString, total } = this.state;
         if(error){
             return <section id="neotable"><div className="container error datagridholder"><div className="datagrid error">Error: {error.message}</div></div></section>;
         }
@@ -154,8 +184,9 @@ class NeoTable extends Component{
                 <section id="neotable">
                     <div className="container loaded datagridholder">
                         <div className="infobar">
+
                             <h3 className="tracking">Currently Tracking <span>{total}</span> Near Earth Objects</h3>
-                            <div className="currenttime">Tracking Objects from {startAt} - {endAt}</div>
+                            <div className="currenttime">Tracking Objects from {startString} - {endString}</div>
                             
                         </div>
                         <div className="dataholder">

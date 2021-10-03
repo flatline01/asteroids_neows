@@ -10,6 +10,10 @@ We could fetch directly from the front end, but that would expose our key. Doing
 This end point takes two optional paramenters, start and end. If no parameters are passed, it will use today and 7 days ago as defaults.
 
 To Do:
+* modify the api response
+    * there are a number of items in the response that are not currently used in the front end. We can
+      destructure the response and recraft it. this should simplify the front end a bit and make the
+      response more performant.
 * cache responses
     * this could reduce number of lookups and hits to the api, as well as speed up response.
 * error / checks

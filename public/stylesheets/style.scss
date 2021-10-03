@@ -286,6 +286,8 @@ section#neotable{
           font-weight: 800;
           &::before, &::after{
             content:"⚠";
+            display: inline-block;
+            margin: 0 5px;
           }
         }
         td a{

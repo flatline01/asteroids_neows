@@ -639,6 +639,8 @@ section#neotable .container.loaded tbody td.potential.hazardous {
 }
 section#neotable .container.loaded tbody td.potential.hazardous::before, section#neotable .container.loaded tbody td.potential.hazardous::after {
   content: "⚠";
+  display: inline-block;
+  margin: 0 5px;
 }
 section#neotable .container.loaded tbody td a {
   display: inline-block;
