@@ -2,17 +2,22 @@
     "nav": [
         {
             "id":0,
+            "label":"Home",
+            "url":"/"
+        },
+        {
+            "id":1,
             "label":"About",
             "url":"/about"
         },
         {
-            "id":1,
+            "id":2,
             "label":"Linked In",
             "target":"external",
             "url":"https://www.linkedin.com/in/josephporto/"
         },
         {
-            "id":2,
+            "id":3,
             "label":"GitHub",
             "target":"external",
             "url":"https://github.com/flatline01/asteroids_neows"
