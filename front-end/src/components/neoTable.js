@@ -24,6 +24,19 @@ function formatDateTime(str){
 
 }
 
+function sort(array, sortby, direction){
+    return array.sort((a, b) => {
+        if (a[sortby] < b[sortby]) {
+          return -1;
+        }
+        if (a[sortby]> b[sortby]) {
+          return 1;
+        }
+        return 0;
+    });
+}
+
+
 class Card extends Component{
     constructor(props){
         super(props);
@@ -132,6 +145,13 @@ class NeoTable extends Component{
             displayType:"table",
             items: []
         };
+        this.handleSorter = this.handleSorter.bind(this)
+    }
+    setSortedField(theId){
+        console.log(theId)
+        this.setState({
+            isLoaded:false
+        })
     }
     componentDidMount() {
         fetch(`/api/${this.state.startAt}/${this.state.endAt}`)
@@ -161,6 +181,14 @@ class NeoTable extends Component{
                 });
             }
         )
+    }
+    handleSorter(sortby, el){
+        console.log("sorting", sortby)
+        let resort = sort(this.state.items, sortby)
+        this.setState({
+            items:resort
+        })
+
     }
     render(){
         const { error, isLoaded, items, startAt,endAt,startString,endString, total } = this.state;
@@ -193,13 +221,13 @@ class NeoTable extends Component{
                             <table>
                                 <thead>
                                     <tr>
-                                        <th><Sorter sortBy="objId">Object ID</Sorter></th>
-                                        <th>Name</th>
+                                        <th><button onClick={()=>this.handleSorter("id",this)}>Object ID</button></th>
+                                        <th><button onClick={()=>this.handleSorter("name", this)}>Name</button></th>
                                         <th>Diameter</th>
-                                        <th>Hazard</th>
+                                        <th><button onClick={()=>this.handleSorter("is_potentially_hazardous_asteroid", this)}>Hazard</button></th>
                                         <th>Sentry Status</th>
                                         <th>Velocity (km/h)</th>
-                                        <th>Miss (km)</th>
+                                        <th>Miss Distance (km)</th>
                                         <th>Magnitude</th>
                                         <th>Approach</th>
                                         <th>Info</th>
