@@ -19,6 +19,14 @@ Api returns absolute_magnitude_h, which is not `visual magnitude` requested belo
 
 Not sure how to derive this.
 
+We will be deploying with the react app in dev mode.
+
+## To Do
+* More styling. Esp Mobile.
+* more text formatting
+* finish sorting buttons
+* add date setting
+
 ## Assignment
 
 Using any framework, resources, libraries, etc you'd like to use, we would like

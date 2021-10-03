@@ -50,14 +50,45 @@ class Sorter extends Component{
     constructor(props){
         super(props);
         this.state={
-            sorting:null
+            sorting:null,
+            sortBy:this.props.sortBy
         }
+        this.handleNullClick = this.handleNullClick.bind(this);
+        this.handleAscClick = this.handleAscClick.bind(this);
+        this.handleDescClick = this.handleDescClick.bind(this);
     }
-    
+    handleNullClick(){
+        this.setState({
+            sorting:"asc"
+        })
+       
+    }
+    handleAscClick(){
+        this.setState({
+            sorting:"desc"
+        })
+    }
+    handleDescClick(){
+        this.setState({
+            sorting:null
+        })
+    }
     render(){
-        return(
-            <button>{this.props.children}</button>
-        )
+        if(this.state.sorting === null){
+            return(
+                <button onClick={this.handleNullClick} className="sorting none">{this.props.children}</button>
+            )
+        }
+        if(this.state.sorting === "asc"){
+            return(
+                <button onClick={this.handleAscClick} className="sorting asc">{this.props.children}</button>
+            )
+        }
+        if(this.state.sorting === "desc"){
+            return(
+                <button onClick={this.handleDescClick} className="sorting desc">{this.props.children}</button>
+            )
+        }
     }
 
 }
@@ -131,7 +162,7 @@ class NeoTable extends Component{
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Object ID</th>
+                                        <th><Sorter sortBy="objId">Object ID</Sorter></th>
                                         <th>Name</th>
                                         <th>Diameter</th>
                                         <th>Hazard</th>
