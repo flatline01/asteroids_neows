@@ -23,6 +23,7 @@ Not sure how to derive this.
 * More styling - Esp Mobile.
 * more text formatting
 * finish sorting buttons
+    * resource: https://www.smashingmagazine.com/2020/03/sortable-tables-react/
     * stash the original object, sort a copy. this will allow for a reset.
     * fix asc/desc sorting
     * fix objects so that they can sort. This may need to be fixed on the server/api side. See notes in routes/api.js
