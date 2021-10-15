@@ -1,5 +1,9 @@
 # JavaScript Interview Test
 
+## Running the Project
+
+From the root, run `nodemon` or npm start. This will start the backend on localhost:3001. Run `gulp` if you need to recompile the scss. cd to /front-end and run `npm start` to start up the react development server on localhost:3000.
+
 ## Backend 
 We will be running a basic Node/Express backend for this project. We will use the backend to auth/key and pull from the nasa endpoint. While this particular API is fairly open, we should still protect our keys per best practice. This project will run `dotenv` so that we can adhere to the principles here: https://12factor.net/config. There is a `.env.example` file in the root of the folder. Copy this, rename it `.env` and add your key. On a server, these would be loaded from  `process.env` in a node enviroment, or `$_SERVER` on a php based back end.
 
